@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshay Kumar — Shopify & WordPress Developer</title>
+  <style>
+    :root {
+      --primary: #1a365d;
+      --accent: #2b6cb0;
+      --tag-bg: #ebf8ff;
+      --tag-text: #2c5282;
+      --light-bg: #f7fafc;
+      --border: #e2e8f0;
+      --text: #2d3748;
+      --muted: #4a5568;
+      --dark: #1a202c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #fff;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .intro {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 16px;
+    }
+
+    .intro strong {
+      color: var(--dark);
+    }
+
+    .contact {
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 28px 0;
+    }
+
+    /* Section titles */
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 16px;
+      margin-top: 8px;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 10px 16px;
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      font-size: 0.92rem;
+    }
+
+    .skills-grid .label {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .skills-grid .value {
+      color: var(--muted);
+    }
+
+    /* Process cards */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .process-card {
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+
+    .process-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .process-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    /* Projects */
+    .project {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 18px;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .project:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .project-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .project-type {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .project-url {
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+
+    .project-url a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .project-url a:hover {
+      text-decoration: underline;
+    }
+
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .project ul {
+      list-style: none;
+      margin-bottom: 14px;
+    }
+
+    .project li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 5px;
+      line-height: 1.45;
+    }
+
+    .project li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin: 28px 0 12px;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .skills-grid .label {
+        margin-bottom: -4px;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <h1>Akshay Kumar</h1>
+      <div class="subtitle">Shopify & WordPress Developer</div>
+      <p class="intro">
+        Shopify and WordPress Developer with <strong>4+ years</strong> of experience building and customizing
+        <strong>12+ Shopify stores</strong> and <strong>28+ WordPress websites</strong> from Figma designs.
+        I handle the full project cycle: planning, design coordination, custom development,
+        speed optimization (up to <strong>40%</strong> improvement), and final testing &amp; QA.
+      </p>
+      <div class="contact">
+        <a href="mailto:akshaykumar9888942114@gmail.com">akshaykumar9888942114@gmail.com</a>
+        <span>+91 9888942114</span>
+        <a href="https://www.linkedin.com/in/akshay-kumar-759283235/" target="_blank">LinkedIn</a>
+        <a href="#" target="_blank">GitHub</a>
+      </div>
+    </header>
+
+    <hr />
+
+    <!-- Skills -->
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="label">Shopify Online Store 2.0</div>
+      <div class="value">Liquid, Theme Customization, Sections, Blocks, Metafields, Product Page Customization, Shogun Builder</div>
+
+      <div class="label">WordPress</div>
+      <div class="value">Custom Plugin Development, Elementor Pro, Advanced Custom Fields (ACF), WooCommerce, REST API, Hooks &amp; Filters</div>
+
+      <div class="label">Programming &amp; Frontend</div>
+      <div class="value">PHP, JavaScript, jQuery, AJAX, HTML5, CSS3, Responsive Design</div>
+
+      <div class="label">Delivery &amp; Tools</div>
+      <div class="value">Figma to Website, Speed Optimization, Core Web Vitals, Website Migration, Bug Fixing, Final Testing &amp; QA, Klaviyo, GitHub</div>
+    </div>
+
+    <!-- Process -->
+    <h2 style="margin-top: 36px;">What I Do on Every Project</h2>
+    <div class="process-grid">
+      <div class="process-card">
+        <h3>Planning</h3>
+        <p>Scoping requirements, breaking work into tasks, and setting clear priorities with the client.</p>
+      </div>
+      <div class="process-card">
+        <h3>Design Coordination</h3>
+        <p>Turning Figma designs into working pages and ensuring the build matches the approved design.</p>
+      </div>
+      <div class="process-card">
+        <h3>Development</h3>
+        <p>Building custom sections, templates, plugins and features on Shopify and WordPress.</p>
+      </div>
+      <div class="process-card">
+        <h3>Integrations</h3>
+        <p>Setting up Klaviyo, web chat, helpdesk and other marketing / support tools.</p>
+      </div>
+      <div class="process-card">
+        <h3>Speed Optimization</h3>
+        <p>Improving load times through asset, script and layout optimization (up to 40%).</p>
+      </div>
+      <div class="process-card">
+        <h3>Final Testing &amp; QA</h3>
+        <p>Checking functionality, layout and performance across devices and browsers before launch.</p>
+      </div>
+    </div>
+
+    <!-- Projects: Shopify -->
+    <h2 style="margin-top: 36px;">Recent Projects</h2>
+    <div class="section-label" style="margin-top: 4px;">Shopify</div>
+
+    <!-- Salt Med -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Salt Med</div>
+        <div class="project-type">Shopify · Built from Scratch</div>
+      </div>
+      <div class="project-url"><a href="https://saltmed.ro/" target="_blank">https://saltmed.ro/</a></div>
+      <p class="project-desc">
+        Built the complete storefront from scratch using the client’s Figma designs. Delivered a fully custom Shopify theme with flexible sections, blocks and metafield-driven product data.
+      </p>
+      <ul>
+        <li>Converted full Figma designs into a production-ready custom Shopify theme</li>
+        <li>Created multiple custom sections and blocks for flexible page building</li>
+        <li>Implemented metafields to store and display custom product data</li>
+        <li>Customized product blocks and theme templates for better merchandising</li>
+        <li>Estimated timelines and completed final testing + speed optimization before launch</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Client’s Figma</span>
+        <span class="tag">Custom Theme</span>
+        <span class="tag">Sections &amp; Blocks</span>
+        <span class="tag">Metafields</span>
+        <span class="tag">Speed Optimization</span>
+      </div>
+    </div>
+
+    <!-- Move2Play -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Move2Play</div>
+        <div class="project-type">Shopify · Pages &amp; Custom Fields</div>
+      </div>
+      <div class="project-url"><a href="https://www.move2play.com/" target="_blank">https://www.move2play.com/</a></div>
+      <p class="project-desc">
+        Built and customized key storefront pages using Shogun Builder and custom field apps to manage dynamic content efficiently.
+      </p>
+      <ul>
+        <li>Built multiple pages with Shogun Builder for fast, flexible content management</li>
+        <li>Implemented custom fields for dynamic page content</li>
+        <li>Handled planning, coordination and final testing before launch</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Shogun Builder</span>
+        <span class="tag">Custom Fields</span>
+        <span class="tag">Planning</span>
+        <span class="tag">Final Testing</span>
+      </div>
+    </div>
+
+    <!-- Buy Bear Knuckles -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Buy Bear Knuckles</div>
+        <div class="project-type">Shopify · Redesign &amp; Bug Fixes</div>
+      </div>
+      <div class="project-url"><a href="https://buybearknuckles.com/" target="_blank">https://buybearknuckles.com/</a></div>
+      <p class="project-desc">
+        Redesigned the homepage slider section and resolved existing bugs to match the updated design and improve overall usability.
+      </p>
+      <ul>
+        <li>Redesigned the homepage slider to match the new design direction</li>
+        <li>Diagnosed and fixed critical frontend bugs in the slider component</li>
+        <li>Improved visual consistency and site stability</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Bug Fixing</span>
+        <span class="tag">Redesign</span>
+        <span class="tag">Frontend</span>
+      </div>
+    </div>
+
+    <!-- Toorallie -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Toorallie</div>
+        <div class="project-type">Shopify · Liquid Customization</div>
+      </div>
+      <div class="project-url"><a href="https://www.toorallie.com.au/" target="_blank">https://www.toorallie.com.au/</a></div>
+      <p class="project-desc">
+        Customized the single product page by modifying the product.liquid template to improve layout and product information display.
+      </p>
+      <ul>
+        <li>Modified product.liquid template for a cleaner single product page layout</li>
+        <li>Adjusted product information hierarchy for a better buying experience</li>
+        <li>Delivered Liquid-level customizations aligned with brand requirements</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Liquid</span>
+        <span class="tag">Product Page</span>
+        <span class="tag">Theme Customization</span>
+      </div>
+    </div>
+
+    <!-- Projects: WordPress -->
+    <div class="section-label">WordPress</div>
+
+    <!-- Powersports USA -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Powersports USA</div>
+        <div class="project-type">WordPress · Elementor + ACF</div>
+      </div>
+      <div class="project-url"><a href="https://powersports-usa.com/" target="_blank">https://powersports-usa.com/</a></div>
+      <p class="project-desc">
+        Built high-performance product layouts with Elementor Pro and Advanced Custom Fields, with a strong focus on speed optimization.
+      </p>
+      <ul>
+        <li>Designed and built product layouts using Elementor Pro</li>
+        <li>Created ACF fields to manage structured product data efficiently</li>
+        <li>Optimized site performance, contributing to up to <strong>40% faster page loads</strong></li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Elementor Pro</span>
+        <span class="tag">ACF</span>
+        <span class="tag">Speed Optimization</span>
+        <span class="tag">Core Web Vitals</span>
+      </div>
+    </div>
+
+    <!-- All Day Puffs -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">All Day Puffs</div>
+        <div class="project-type">WordPress · Elementor + Quick View</div>
+      </div>
+      <div class="project-url"><a href="https://alldaypuffs.com/" target="_blank">https://alldaypuffs.com/</a></div>
+      <p class="project-desc">
+        Built the site with Elementor Pro and customized the product quick view so shoppers can view details without leaving the listing page.
+      </p>
+      <ul>
+        <li>Built complete site layout with Elementor Pro</li>
+        <li>Customized product quick view feature to improve browsing experience</li>
+        <li>Conducted final testing across devices before launch</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Elementor Pro</span>
+        <span class="tag">Quick View</span>
+        <span class="tag">Final Testing</span>
+      </div>
+    </div>
+
+    <!-- Adventures with Ollie -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Adventures with Ollie</div>
+        <div class="project-type">WordPress · Custom Plugin Development</div>
+      </div>
+      <div class="project-url"><a href="https://adventureswithollie.com/" target="_blank">https://adventureswithollie.com/</a></div>
+      <p class="project-desc">
+        Developed <strong>3 custom WordPress plugins</strong> from client specifications, including a flexible payment system and internal tools for tour management.
+      </p>
+      <ul>
+        <li>Built “Pay What You Want” partial payment plugin for flexible pricing</li>
+        <li>Developed a tour leader dashboard for internal operations</li>
+        <li>Created room listing functionality for tour accommodation management</li>
+        <li>Wrote clean PHP and integrated with existing WordPress architecture</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Custom Plugin (PHP)</span>
+        <span class="tag">Payment System</span>
+        <span class="tag">Dashboard</span>
+        <span class="tag">Room Listing</span>
+      </div>
+    </div>
+
+    <footer>
+      © 2026 Akshay Kumar · Shopify &amp; WordPress Developer<br />
+      Available for Shopify theme development, custom Liquid work, WordPress plugins, Elementor + ACF builds, and full Figma-to-website delivery.
+    </footer>
+
+  </div>
+</body>
+</html>
